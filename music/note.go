@@ -25,6 +25,14 @@ func (n Note) ShiftSemitones(semitones int) Note {
 	return Note(int(n)+semitones) % 12
 }
 
+func (n Note) Flat() Note {
+	return n.ShiftSemitones(-1)
+}
+
+func (n Note) Sharp() Note {
+	return n.ShiftSemitones(1)
+}
+
 func (n Note) Second() Note {
 	return n.ShiftSemitones(2)
 }
