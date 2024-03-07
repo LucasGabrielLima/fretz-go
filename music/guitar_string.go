@@ -27,3 +27,16 @@ func (g GuitarString) Format() {
 
 	fmt.Print("\n")
 }
+
+func (g GuitarString) FormatScale(scale Scale) {
+	fmt.Printf("%s: ", g.rootNote.String())
+	for _, fret := range g.frets {
+		if scale.ContainsNote(fret.note) {
+			fret.FormatWithNote()
+		} else {
+			fret.Format()
+		}
+	}
+
+	fmt.Print("\n")
+}

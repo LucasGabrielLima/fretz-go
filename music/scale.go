@@ -10,6 +10,26 @@ func NewScale(name string, rootNote Note, notes []Note) *Scale {
 	return &Scale{Name: name, RootNote: rootNote, Notes: notes}
 }
 
+func (s Scale) ContainsNote(note Note) bool {
+	for _, n := range s.Notes {
+		if n == note {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (s Scale) ContainsChord(chord []Note) bool {
+	for _, n := range chord {
+		if !s.ContainsNote(n) {
+			return false
+		}
+	}
+
+	return true
+}
+
 func NewMajorScale(rootNote Note) *Scale {
 	return NewScale("Major", rootNote, []Note{rootNote, rootNote.Second(), rootNote.MajorThird(), rootNote.Fourth(), rootNote.Fifth(), rootNote.MajorSixth(), rootNote.MajorSeventh()})
 }
