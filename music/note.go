@@ -17,6 +17,25 @@ const (
 	GSharpNote
 )
 
+func NewNoteFromString(note string) Note {
+	var stringToNote = map[string]Note{
+		"A":  ANote,
+		"A#": ASharpNote,
+		"B":  BNote,
+		"C":  CNote,
+		"C#": CSharpNote,
+		"D":  DNote,
+		"D#": DSharpNote,
+		"E":  ENote,
+		"F":  FNote,
+		"F#": FSharpNote,
+		"G":  GNote,
+		"G#": GSharpNote,
+	}
+
+	return stringToNote[note]
+}
+
 func (n Note) String() string {
 	return [...]string{"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"}[n]
 }

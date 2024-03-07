@@ -1,10 +1,7 @@
 package main
 
-import (
-	"fretz/music"
-)
+import "fretz/cmd"
 
 func main() {
-	neck := music.NewNeck()
-	neck.Format()
+	cmd.Execute()
 }
